@@ -4,7 +4,7 @@ RUN  sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org
 RUN   yum install httpd python36 -y
 RUN  sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf
 RUN echo "print('Hello, world!')" >  mail.py  &&  chmod u+x mail.py
-COPY  src/  /var/www/html/
+COPY  index.html  /var/www/html/
 RUN chown apache:apache  /var/run/httpd  /var/log/httpd  
 RUN chmod  -R 777  /var/run/httpd  /var/log/httpd 
 EXPOSE 8080
